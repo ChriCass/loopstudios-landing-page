@@ -16,18 +16,14 @@ const HeroContent = () => (
 const Hero = () => {
   return (
     <section className="relative h-dvh bg-black" aria-labelledby="hero-heading">
-      <div
-        role="img"
-        aria-label="Person using virtual reality headset"
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
-        style={{ backgroundImage: `url(${heroMobile})` }}
-      />
-      <div
-        role="img"
-        aria-label="Person using virtual reality headset"
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
-        style={{ backgroundImage: `url(${heroDesktop})` }}
-      />
+      <picture className="absolute inset-0">
+        <source media="(min-width: 768px)" srcSet={heroDesktop} />
+        <img
+          src={heroMobile}
+          alt="Person using virtual reality headset"
+          className="w-full h-full object-cover object-center"
+        />
+      </picture>
       <div className="absolute inset-0 bg-black/30" />
       <div className="relative z-10 h-full">
         <HeroContent />

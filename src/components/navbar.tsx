@@ -38,6 +38,7 @@ const Navbar = () => {
             </ul>
             <button
               ref={hamburgerRef}
+              type="button"
               className="md:hidden"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
