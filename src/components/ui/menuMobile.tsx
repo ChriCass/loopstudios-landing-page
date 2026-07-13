@@ -13,7 +13,7 @@ const MenuMobile = ({ isOpen, onClose, navLinks }: MenuMobileProps) => {
   const [animate, setAnimate] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout>>();
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (isOpen) {

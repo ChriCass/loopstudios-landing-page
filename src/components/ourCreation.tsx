@@ -1,4 +1,3 @@
-import React from "react";
 import CreationCard from "./ui/creationCard";
 import { creations } from "../data/creations";
 
