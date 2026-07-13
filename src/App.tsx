@@ -11,12 +11,12 @@ const App = () => {
         <div className="absolute top-0 left-0 right-0 z-20">
           <Navbar />
         </div>
-        <Hero />
+        <main>
+          <Hero />
+          <ContentText />
+          <OurCreation />
+        </main>
       </div>
-      <main>
-        <ContentText />
-        <OurCreation />
-      </main>
       <Footer />
     </>
   );

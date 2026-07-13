@@ -5,7 +5,7 @@ const HeroContent = () => (
   <div className="max-w-7xl px-4 mx-auto h-full">
     <div className="flex flex-col justify-center h-full">
       <div className="flex flex-col p-5 justify-center border-2 border-white lg:w-7/12">
-        <h1 className="text-5xl lg:text-8xl uppercase font-light text-white">
+        <h1 id="hero-heading" className="text-5xl lg:text-8xl uppercase font-light text-white">
           Immersive experiences that deliver
         </h1>
       </div>
@@ -15,16 +15,16 @@ const HeroContent = () => (
 
 const Hero = () => {
   return (
-    <section
-      className="relative h-dvh bg-black"
-      role="img"
-      aria-label="Person using virtual reality headset"
-    >
+    <section className="relative h-dvh bg-black" aria-labelledby="hero-heading">
       <div
+        role="img"
+        aria-label="Person using virtual reality headset"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
         style={{ backgroundImage: `url(${heroMobile})` }}
       />
       <div
+        role="img"
+        aria-label="Person using virtual reality headset"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
         style={{ backgroundImage: `url(${heroDesktop})` }}
       />
