@@ -8,6 +8,14 @@ type MenuMobileProps = {
   navLinks: string[];
 };
 
+const delayClasses = [
+  "delay-[0ms]",
+  "delay-[100ms]",
+  "delay-[200ms]",
+  "delay-[300ms]",
+  "delay-[400ms]",
+];
+
 const MenuMobile = ({ isOpen, onClose, navLinks }: MenuMobileProps) => {
   const [visible, setVisible] = useState(false);
   const [animate, setAnimate] = useState(false);
@@ -94,6 +102,7 @@ const MenuMobile = ({ isOpen, onClose, navLinks }: MenuMobileProps) => {
           </a>
           <button
             ref={closeBtnRef}
+            type="button"
             aria-label="Close menu"
             onClick={onClose}
           >
@@ -107,12 +116,11 @@ const MenuMobile = ({ isOpen, onClose, navLinks }: MenuMobileProps) => {
             {navLinks.map((link, i) => (
               <li
                 key={link}
-                className={`transition-all duration-500 ${
+                className={`transition-all duration-500 ${delayClasses[i] ?? "delay-[500ms]"} ${
                   animate
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                 }`}
-                style={{ transitionDelay: `${i * 100}ms` }}
               >
                 <a
                   href="#"

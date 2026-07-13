@@ -18,18 +18,14 @@ const CreationCard = ({ desktop, mobile, title }: CreationCardProps) => {
       aria-labelledby={`creation-${title.replace(/\s+/g, "-").toLowerCase()}`}
       onKeyDown={handleKeyDown}
     >
-      <div
-        role="img"
-        aria-label={title}
-        className="absolute inset-0 bg-cover bg-center md:hidden transition-transform duration-700 ease-out group-hover:scale-110 group-focus-visible:scale-110"
-        style={{ backgroundImage: `url(${mobile})` }}
-      />
-      <div
-        role="img"
-        aria-label={title}
-        className="absolute inset-0 bg-cover bg-center hidden md:block transition-transform duration-700 ease-out group-hover:scale-110 group-focus-visible:scale-110"
-        style={{ backgroundImage: `url(${desktop})` }}
-      />
+      <picture className="absolute inset-0 overflow-hidden">
+        <source media="(min-width: 768px)" srcSet={desktop} />
+        <img
+          src={mobile}
+          alt={title}
+          className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110 group-focus-visible:scale-110"
+        />
+      </picture>
       <div className="absolute inset-0 bg-linear-to-r from-black/60 to-transparent transition-opacity duration-300 group-hover:opacity-80 group-focus-visible:opacity-80" />
       <div className="absolute inset-0 bg-linear-to-t from-white/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100" />
       <h3
